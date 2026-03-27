@@ -1,76 +1,123 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Runys Style</title>
-<link rel="stylesheet" href="startsida.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Runys — Salong</title>
+  <link rel="stylesheet" href="startsida.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<header id="header">
-<div class="logo">Runys Style</div>
 
-<div class="menu-toggle">☰</div>
-
-<nav>
-<ul>
-<li><a href="#" class="active">Hem</a></li>
-<li><a href="#">Tjänster</a></li>
-<li><a href="#" class="btn-nav">Boka online</a></li>
-<li><a href="#">Kontakt</a></li>
-</ul>
-</nav>
-</header>
-
-
-<section class="hero">
-<div class="overlay"></div>
-
-<div class="hero-content">
-<h1>Din frisör i Täby Centrum</h1>
-<p>Boka din tid snabbt och enkelt online</p>
-<a href="#" class="btn-main">Boka Online</a>
-</div>
-</section>
+  <nav class="nav" id="navbar">
+    <a href="startsida.html" class="nav__logo">Runys</a>
+    <button class="nav__burger" id="burger" aria-label="Öppna meny">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="startsida.html" class="active">Hem</a></li>
+      <li><a href="tjänster.html">Tjänster</a></li>
+      <li><a href="boka.html">Boka</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
 
 
-<section class="info-bar">
-<div>✔ Drop-in</div>
-<div>✔ Onlinebokning</div>
-<div>✔ Erfaren personal</div>
-</section>
+  <section class="hero">
+    <div class="hero__image-wrap">
+      <img src="bild.png" alt="Salong Runys" class="hero__image" />
+      <div class="hero__overlay"></div>
+    </div>
+    <div class="hero__content">
+      <p class="hero__eyebrow reveal">Välkommen till</p>
+      <h1 class="hero__title reveal">Runys</h1>
+      <p class="hero__sub reveal">Skönhet i sin enklaste, renaste form.</p>
+      <a href="boka.html" class="btn reveal">Boka tid</a>
+    </div>
+    <div class="hero__scroll">
+      <span>Scrolla</span>
+      <div class="hero__scroll-line"></div>
+    </div>
+  </section>
 
 
-<section class="services">
-<h2>Våra tjänster</h2>
+  <section class="intro">
+    <div class="intro__inner">
+      <div class="intro__text reveal-up">
+        <span class="label">Om oss</span>
+        <h2>Mer än en frisör –<br/><em>en upplevelse.</em></h2>
+        <p>Vi tror på enkelhet, hantverk och närvaro. Hos oss tas du emot av erfarna stylister som lyssnar, rådgiver och skapar resultat som är just dig.</p>
+        <a href="tjänster.html" class="link-arrow">Utforska våra tjänster →</a>
+      </div>
+      <div class="intro__visual reveal-up">
+        <div class="intro__card">
+          <div class="intro__stat">10+</div>
+          <div class="intro__stat-label">År i branschen</div>
+        </div>
+        <div class="intro__card">
+          <div class="intro__stat">2&thinsp;000+</div>
+          <div class="intro__stat-label">Nöjda kunder</div>
+        </div>
+        <div class="intro__card">
+          <div class="intro__stat">100%</div>
+          <div class="intro__stat-label">Naturliga produkter</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-<div class="cards">
 
-<div class="card">
-<h3>Klippning</h3>
-<p>Professionell klippning</p>
-</div>
+  <section class="services-preview">
+    <div class="services-preview__inner">
+      <span class="label reveal-up">Våra tjänster</span>
+      <h2>Skräddarsytt för dig</h2>
+      <div class="services-preview__grid">
+        <div class="service-card reveal-up">
+          <div class="service-card__icon">✂</div>
+          <h3>Klippning</h3>
+          <p>Dam, herr och barn. Varje klipp anpassad efter ditt hår och din livsstil.</p>
+          <span class="service-card__price">Från 350 kr</span>
+        </div>
+        <div class="service-card reveal-up">
+          <div class="service-card__icon">◐</div>
+          <h3>Färgning</h3>
+          <p>Från subtila highlights till helhetsförändringar — alltid med mjuka, naturliga resultat.</p>
+          <span class="service-card__price">Från 650 kr</span>
+        </div>
+        <div class="service-card reveal-up">
+          <div class="service-card__icon">❧</div>
+          <h3>Behandlingar</h3>
+          <p>Djupvårdande hårvård med ekologiska ingredienser för lyster och styrka.</p>
+          <span class="service-card__price">Från 250 kr</span>
+        </div>
+      </div>
+      <a href="boka.html" class="btn btn--outline reveal-up">Boka din tid nu</a>
+    </div>
+  </section>
 
-<div class="card">
-<h3>Färgning</h3>
-<p>Modern färgteknik</p>
-</div>
+  <section class="quote-band">
+    <blockquote>
+      "Skönhet är inte vad du bär — det är hur du bär det."
+    </blockquote>
+  </section>
 
-<div class="card">
-<h3>Styling</h3>
-<p>Perfekt finish</p>
-</div>
-
-</div>
-</section>
-
-
-<section class="cta">
-<h2>Boka din tid idag</h2>
-<a href="#" class="btn-main">Boka nu</a>
-</section>
-
-<script src="startsida.js"></script>
-</body>
-</html>
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo">Runys</span>
+        <p>Salong för dig som värdesätter kvalitet och enkelhet.</p>
+      </div>
+      <div class="footer__links">
+        <a href="startsida.html">Hem</a>
+        <a href="tjänster.html">Tjänster</a>
+        <a href="boka.html">Boka</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="footer__contact">
+        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cda5a8a1a1a28da1b4a6a6a8e3bea8">[email&#160;protected]</a></p>
+        <p>08 - 123 456 78</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Runys Salong.
