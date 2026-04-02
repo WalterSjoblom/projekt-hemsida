@@ -292,5 +292,4 @@ a  { text-decoration: none; color: inherit; }
   padding: 28px 20px;
   text-align: center;
   border: 1px solid var(--border);
-  transition: transform 0.3s var(--ease), box-shadow 0.3s;
-}
+  transition: transform 0.3s var(--ease), bo
