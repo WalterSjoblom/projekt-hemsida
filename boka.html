@@ -1,56 +1,191 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Boka tid</title>
-<link rel="stylesheet" href="boka.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Boka tid — Runys Salong</title>
+  <link rel="stylesheet" href="boka.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
 </head>
 <body>
 
-<header>
-<div class="logo">Runys Style</div>
-<nav>
-<ul>
-<li><a href="startsida.html">Hem</a></li>
-<li><a href="tjänster.html">Tjänster</a></li>
-<li><a href="boka.html" class="active">Boka</a></li>
-<li><a href="kontakt.html">Kontakt</a></li>
-</ul>
-</nav>
-</header>
+  <!-- NAV -->
+  <nav class="nav scrolled" id="navbar">
+    <a href="startsida.html" class="nav__logo">Runys</a>
+    <button class="nav__burger" id="burger" aria-label="Öppna meny">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="startsida.html">Hem</a></li>
+      <li><a href="tjänster.html">Tjänster</a></li>
+      <li><a href="boka.html" class="active">Boka</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
 
-<section class="booking">
 
-<div class="booking-box">
+  <header class="page-header">
+    <div class="page-header__inner">
+      <span class="label">Reservera din plats</span>
+      <h1 class="page-header__title">Boka tid</h1>
+      <p class="page-header__sub">Fyll i formuläret nedan, så kontaktar vi dig för bekräftelse inom 24 timmar.</p>
+    </div>
+  </header>
 
-<h1>Boka tid</h1>
 
-<label>Tjänst</label>
-<select>
-<option>Klippning</option>
-<option>Färgning</option>
-<option>Styling</option>
-</select>
+  <main class="booking">
+    <div class="booking__inner">
 
-<label>Datum</label>
-<input type="date">
+  
+      <div class="booking__form-wrap reveal-up">
+        <form class="bokningsformular" id="bokningsformular" onsubmit="event.preventDefault()">
 
-<label>Tid</label>
-<input type="time">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="firstName">Förnamn</label>
+              <input type="text" id="firstName" name="firstName" placeholder="Anna" />
+              
+            </div>
+            <div class="form-group">
+              <label for="lastName">Efternamn </label>
+              <input type="text" id="lastName" name="lastName" placeholder="Lindgren" />
+              
+            </div>
+          </div>
 
-<label>Namn</label>
-<input type="text" placeholder="Ditt namn">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="email">E-post </label>
+              <input type="email" id="email" name="email" placeholder="anna@exempel.se" />
+              
+            </div>
+            <div class="form-group">
+              <label for="phone">Telefon </label>
+              <input type="tel" id="phone" name="phone" placeholder="070-123 45 67" />
+              
+            </div>
+          </div>
 
-<label>Email</label>
-<input type="email" placeholder="Din email">
+          <div class="form-group">
+            <label for="service">Tjänst </label>
+            <div class="select-wrap">
+              <select id="service" name="service">
+                <option value="">Välj tjänst…</option>
+                <optgroup label="Klippning">
+                  <option value="damklipp">Damklipp — 550 kr</option>
+                  <option value="herrklipp">Herrklipp — 350 kr</option>
+                  <option value="barnklipp">Barnklipp — 250 kr</option>
+                </optgroup>
+                <optgroup label="Färgning">
+                  <option value="helfarg">Helhetsfärgning — fr. 850 kr</option>
+                  <option value="ansatser">Ansatser — fr. 650 kr</option>
+                  <option value="highlights">Highlights / Slingor — fr. 950 kr</option>
+                  <option value="balayage">Balayage — fr. 1 200 kr</option>
+                </optgroup>
+                <optgroup label="Behandlingar">
+                  <option value="keratin">Keratinbehandling — fr. 1 500 kr</option>
+                  <option value="mask">Djupvårdande mask — 250 kr</option>
+                </optgroup>
+                <optgroup label="Styling">
+                  <option value="blowdry">Blow dry — fr. 350 kr</option>
+                  <option value="uppsattning">Uppsättning — fr. 700 kr</option>
+                </optgroup>
+              </select>
+            </div>
+            
+          </div>
 
-<button>Boka nu</button>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="date">Önskat datum</label>
+              <input type="text" id="date" name="date" placeholder="t.ex. 2026-04-15" />
+            </div>
+            <div class="form-group">
+              <label for="time">Önskad tid</label>
+              <div class="select-wrap">
+                <select id="time" name="time">
+                  <option value="">Välj tid…</option>
+                  <option>09:00</option>
+                  <option>10:00</option>
+                  <option>11:00</option>
+                  <option>12:00</option>
+                  <option>13:00</option>
+                  <option>14:00</option>
+                  <option>15:00</option>
+                  <option>16:00</option>
+                  <option>17:00</option>
+                </select>
+              </div>
+            </div>
+          </div>
 
-</div>
+          <div class="form-group">
+            <label for="message">Meddelande / önskemål</label>
+            <textarea id="message" name="message" rows="4" placeholder="T.ex. hårtyp, längd, inspirationsbilder m.m."></textarea>
+          </div>
 
-</section>
+          <button type="submit" class="btn btn--submit" id="submitBtn">
+            <span class="btn__text">Skicka bokningsförfrågan</span>
+            <span class="btn__loading" aria-hidden="true">…</span>
+          </button>
 
-<script src="boka.js"></script>
-</body>
-</html>
+        </form>
+      </div>
+
+   
+      <aside class="booking__aside reveal-up">
+        <div class="aside-card">
+          <h3>Öppettider</h3>
+          <ul class="hours-list">
+            <li><span>Måndag–Fredag</span><span>09:00–18:00</span></li>
+            <li><span>Lördag</span><span>10:00–16:00</span></li>
+            <li><span class="closed">Söndag</span><span class="closed">Stängt</span></li>
+          </ul>
+        </div>
+        <div class="aside-card">
+          <h3>Bra att veta</h3>
+          <ul class="info-list">
+            <li> Vi bekräftar din bokning via e-post</li>
+            <li> Avbokning senast 24h i förväg</li>
+            <li> Vi använder naturliga och ekologiska produkter</li>
+            <li> Vi tar Swish, kort och kontant</li>
+          </ul>
+        </div>
+        <div class="aside-card aside-card--green">
+          <p class="aside-quote">"En stund för dig. En behandling för ditt hår."</p>
+        </div>
+      </aside>
+
+    </div>
+  </main>
+
+ 
+  <div class="success-overlay" id="successOverlay">
+    <div class="success-box">
+      <div class="success-icon">✓</div>
+      <h2>Tack för din bokning!</h2>
+      <p>Vi har tagit emot din förfrågan och återkommer med bekräftelse inom 24 timmar.</p>
+      <a href="startsida.html" class="btn">Tillbaka till startsidan</a>
+    </div>
+  </div>
+
+
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo">Runys</span>
+        <p>Salong för dig som värdesätter kvalitet och enkelhet.</p>
+      </div>
+      <div class="footer__links">
+        <a href="startsida.html">Hem</a>
+        <a href="tjänster.html">Tjänster</a>
+        <a href="boka.html">Boka</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="footer__contact">
+        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cea6aba2a2a18ea2b7a5a5abe0bdab">[email&#160;protected]</a></p>
+        <p>08 - 123 456 78</p>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <p>© 2026 Runys Sa
