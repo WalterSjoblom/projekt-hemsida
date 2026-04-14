@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boka tid — Runys Salong</title>
   <link rel="stylesheet" href="boka.css" />
- 
+</head>
 <body>
 
   <!-- NAV -->
@@ -22,7 +22,7 @@
     </ul>
   </nav>
 
-
+  <!-- PAGE HEADER -->
   <header class="page-header">
     <div class="page-header__inner">
       <span class="label">Reservera din plats</span>
@@ -31,11 +31,11 @@
     </div>
   </header>
 
-
+  <!-- BOOKING LAYOUT -->
   <main class="booking">
     <div class="booking__inner">
 
-  
+      <!-- FORM -->
       <div class="booking__form-wrap reveal-up">
         <form class="bokningsformular" id="bokningsformular" onsubmit="event.preventDefault()">
 
@@ -120,18 +120,17 @@
 
           <div class="form-group">
             <label for="message">Meddelande / önskemål</label>
-            <textarea id="message" name="message" rows="4" placeholder="T.ex. hårtyp, längd, inspirationsbilder m.m."></textarea>
+            <textarea id="message" name="message" rows="6" placeholder="T.ex. hårtyp, längd, inspirationsbilder m.m." style="resize: none;"></textarea>
           </div>
 
           <button type="submit" class="btn btn--submit" id="submitBtn">
-            <span class="btn__text">Skicka bokningsförfrågan</span>
-            <span class="btn__loading" aria-hidden="true">…</span>
+            Skicka bokningsförfrågan
           </button>
 
         </form>
       </div>
 
-   
+      <!-- INFO SIDEBAR -->
       <aside class="booking__aside reveal-up">
         <div class="aside-card">
           <h3>Öppettider</h3>
@@ -158,17 +157,7 @@
     </div>
   </main>
 
- 
-  <div class="success-overlay" id="successOverlay">
-    <div class="success-box">
-      <div class="success-icon">✓</div>
-      <h2>Tack för din bokning!</h2>
-      <p>Vi har tagit emot din förfrågan och återkommer med bekräftelse inom 24 timmar.</p>
-      <a href="startsida.html" class="btn">Tillbaka till startsidan</a>
-    </div>
-  </div>
-
-
+  <!-- FOOTER -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
@@ -181,10 +170,13 @@
         <a href="boka.html">Boka</a>
         <a href="kontakt.html">Kontakt</a>
       </div>
-      <div class="footer__contact">
-        <p><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="cea6aba2a2a18ea2b7a5a5abe0bdab">[email&#160;protected]</a></p>
-        <p>08 - 123 456 78</p>
+            <div class="footer__contact">
+        <p>runys.salon@gmail.com</p>
+        <p>073 106 70 23</p>
       </div>
     </div>
-    <div class="footer__bottom">
-      <p>© 2026 Runys Sa
+  </footer>
+
+  <script src="boka.js"></script>
+</body>
+</html>

@@ -1,4 +1,3 @@
-// Runys Salong — startsida.js
 
 // Navbar blir mörk när man scrollar ner
 window.addEventListener('scroll', () => {
