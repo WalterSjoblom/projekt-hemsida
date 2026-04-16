@@ -1,11 +1,112 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kontakt — Runys Salong</title>
+  <link rel="stylesheet" href="kontakt.css" />
 </head>
 <body>
-    
+
+  <!-- NAV -->
+  <nav class="nav scrolled" id="navbar">
+    <a href="startsida.html" class="nav__logo">Runys</a>
+    <button class="nav__burger" id="burger" aria-label="Öppna meny">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="startsida.html">Hem</a></li>
+      <li><a href="tjänster.html">Tjänster</a></li>
+      <li><a href="boka.html">Boka</a></li>
+      <li><a href="kontakt.html" class="active">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header__inner">
+      <span class="label">Vi finns här för dig</span>
+      <h1 class="page-header__title">Kontakt</h1>
+      <p class="page-header__sub">Har du frågor? Hör av dig — vi svarar så fort vi kan.</p>
+    </div>
+  </header>
+
+  <!-- CONTACT LAYOUT -->
+  <main class="contact">
+    <div class="contact__inner">
+
+      <!-- INFO COLUMN -->
+      <div class="contact__info">
+
+        <div class="info-block">
+          <div class="info-block__icon">◈</div>
+          <div>
+            <h3>Adress</h3>
+            <p>Storgatan 12<br/>114 55 Stockholm</p>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block__icon">◈</div>
+          <div>
+            <h3>Telefon</h3>
+            <p>073 106 70 23</p>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block__icon">◈</div>
+          <div>
+            <h3>E-post</h3>
+            <p>runys.salon@gmail.com</p>
+          </div>
+        </div>
+
+        <div class="info-block">
+          <div class="info-block__icon">◈</div>
+          <div>
+            <h3>Sociala medier</h3>
+            <p>Instagram — Runys</p>
+            <p>Facebook — Runys</p>
+            <p>TikTok — Runys</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ÖPPETTIDER -->
+      <div class="contact__hours">
+        <h3>Öppettider</h3>
+        <table class="hours-table">
+          <tr><td>Måndag–Fredag</td><td>09:00–18:00</td></tr>
+          <tr><td>Lördag</td><td>10:00–16:00</td></tr>
+          <tr class="closed-row"><td>Söndag</td><td>Stängt</td></tr>
+        </table>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo">Runys</span>
+        <p>Salong för dig som värdesätter kvalitet och enkelhet.</p>
+      </div>
+            <div class="footer__links">
+        <a href="startsida.html">Hem</a>
+        <a href="tjänster.html">Tjänster</a>
+        <a href="boka.html">Boka</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+      <div class="footer__contact">
+        <p>runys.salon@gmail.com</p>
+        <p>073 106 70 23</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="kontakt.js"></script>
 </body>
 </html>
