@@ -1,11 +1,212 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="sv">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tjänster — Runys Salong</title>
+  <link rel="stylesheet" href="css/alla.css" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" />
+  <link rel="stylesheet" href="css/tjänster.css" />
 </head>
 <body>
-    
+
+  <!-- NAV -->
+  <nav class="nav scrolled" id="navbar">
+    <a href="startsida.html" class="nav__logo">Runys</a>
+    <button class="nav__burger" id="burger" aria-label="Öppna meny">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="startsida.html">Hem</a></li>
+      <li><a href="tjänster.html" class="active">Tjänster</a></li>
+      <li><a href="boka.html">Boka</a></li>
+      <li><a href="kontakt.html">Kontakt</a></li>
+    </ul>
+  </nav>
+
+  <!-- PAGE HEADER -->
+  <header class="page-header">
+    <div class="page-header__inner">
+      <span class="label">Vad vi erbjuder</span>
+      <h1 class="page-header__title">Våra tjänster</h1>
+      <p class="page-header__sub">Varje behandling är ett hantverk utfört med omsorg, kunskap och rätt produkter.</p>
+    </div>
+  </header>
+
+  <!-- MAIN CONTENT -->
+  <main class="services-main">
+    <div class="services-main__inner">
+
+      <!-- Category: Klippning -->
+      <section class="category reveal-up">
+        <div class="category__header">
+          <div class="category__line"></div>
+          <h2>Klippning</h2>
+        </div>
+        <div class="category__items">
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Damklipp</h3>
+              <p>Inkl. tvätt, klipp och avslutningstork med styling.</p>
+            </div>
+            <span class="service-row__price">550 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Herrklipp</h3>
+              <p>Tvätt, klipp och styling.</p>
+            </div>
+            <span class="service-row__price">350 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Barnklipp (under 12 år)</h3>
+              <p>Enkel klipp med tvätt.</p>
+            </div>
+            <span class="service-row__price">250 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Lugg &amp; kontur</h3>
+              <p>Snabb trimning av lugg eller nackkontur.</p>
+            </div>
+            <span class="service-row__price">150 kr</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category: Färgning -->
+      <section class="category reveal-up">
+        <div class="category__header">
+          <div class="category__line"></div>
+          <h2>Färgning</h2>
+        </div>
+        <div class="category__items">
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Helhetsfärgning</h3>
+              <p>Helfärg från rot till topp, inkl. toning och tvätt.</p>
+            </div>
+            <span class="service-row__price">Från 850 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Ansatser</h3>
+              <p>Utväxtfärgning för fräschare look snabbt.</p>
+            </div>
+            <span class="service-row__price">Från 650 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Highlights / Slingor</h3>
+              <p>Partiell eller hel slingning för naturligt ljus och djup.</p>
+            </div>
+            <span class="service-row__price">Från 950 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Balayage</h3>
+              <p>Fri handfärgning för ett mjukt, solkysst resultat.</p>
+            </div>
+            <span class="service-row__price">Från 1 200 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Toning / Glans</h3>
+              <p>Intensifierar färg och ger spegelblankt resultat.</p>
+            </div>
+            <span class="service-row__price">350 kr</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category: Behandlingar -->
+      <section class="category reveal-up">
+        <div class="category__header">
+          <div class="category__line"></div>
+          <h2>Hårbehandlingar</h2>
+        </div>
+        <div class="category__items">
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Keratinbehandling</h3>
+              <p>Slät, frizz-fri yta med upp till 12 veckors hållbarhet.</p>
+            </div>
+            <span class="service-row__price">Från 1 500 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Djupvårdande mask</h3>
+              <p>Intensiv återfuktning och reparation för stressat hår.</p>
+            </div>
+            <span class="service-row__price">250 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Hårbottenmassage &amp; serum</h3>
+              <p>Stimulerar hårbotten och ökar hårets styrka och tillväxt.</p>
+            </div>
+            <span class="service-row__price">300 kr</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- Category: Styling -->
+      <section class="category reveal-up">
+        <div class="category__header">
+          <div class="category__line"></div>
+          <h2>Styling</h2>
+        </div>
+        <div class="category__items">
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Blow dry</h3>
+              <p>Professionell avslutningstork med volym och glans.</p>
+            </div>
+            <span class="service-row__price">Från 350 kr</span>
+          </div>
+          <div class="service-row">
+            <div class="service-row__info">
+              <h3>Uppsättning</h3>
+              <p>För bröllop, fest eller speciella tillfällen.</p>
+            </div>
+            <span class="service-row__price">Från 700 kr</span>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- CTA BAND -->
+  <section class="cta-band reveal-up">
+    <div class="cta-band__inner">
+      <h2>Redo för en ny look?</h2>
+      <p>Boka din tid online — enkelt och snabbt.</p>
+      <a href="boka.html" class="btn">Boka tid</a>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <span class="nav__logo">Runys</span>
+        <p>Salong för dig som värdesätter kvalitet och enkelhet.</p>
+      </div>
+      <div class="footer__links">
+        <a href="startsida.html">Hem</a>
+        <a href="tjänster.html">Tjänster</a>
+        <a href="boka.html">Boka</a>
+        <a href="kontakt.html">Kontakt</a>
+      </div>
+            <div class="footer__contact">
+        <p>runys.salon@gmail.com</p>
+        <p>073 106 70 23</p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="tjänster.js"></script>
 </body>
 </html>
