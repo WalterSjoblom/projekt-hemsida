@@ -1,0 +1,46 @@
+
+.booking { padding: 80px 60px 100px; }
+.booking__inner {
+  max-width: var(--max-w); margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start;
+}
+
+
+.bokningsformular { display: flex; flex-direction: column; gap: 24px; }
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+.form-group textarea { resize: vertical; min-height: 100px; }
+
+.select-wrap { position: relative; }
+.select-wrap::after {
+  content: '↓'; position: absolute; right: 16px; top: 50%;
+  transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 13px;
+}
+.btn--submit { width: fit-content; padding: 16px 48px; font-size: 13px; }
+
+
+.booking__aside {
+  display: flex; flex-direction: column; gap: 16px;
+  position: sticky; top: calc(var(--nav-h) + 32px);
+}
+.aside-card { background: var(--white); border: 1px solid var(--border); padding: 28px 24px; }
+.aside-card h3 {
+  font-size: 20px; font-weight: 400; margin-bottom: 16px;
+  padding-bottom: 12px; border-bottom: 1px solid var(--border);
+}
+.hours-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.hours-list li { display: flex; justify-content: space-between; font-size: 14px; }
+.hours-list li .closed { color: var(--text-muted); font-style: italic; }
+.info-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+.info-list li { font-size: 13px; color: var(--text-muted); }
+.aside-card--green { background: var(--green-dark); border-color: var(--green-dark); }
+.aside-quote { font-size: 18px; font-style: italic; font-weight: 300; color: var(--white); line-height: 1.5; text-align: center; }
+
+
+@media (max-width: 900px) {
+  .booking__inner  { grid-template-columns: 1fr; }
+  .booking__aside  { position: static; }
+  .booking         { padding-left: 32px; padding-right: 32px; }
+}
+@media (max-width: 560px) {
+  .form-row { grid-template-columns: 1fr; }
+}
