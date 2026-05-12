@@ -1,6 +1,10 @@
 
+/* === RESET === */
+/* Reset - tar bort webbläsarens standardmarginaler och padding */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* === VARIABLER === */
+/* CSS-variabler - färger, typsnitt och mått som används på alla sidor */
 :root {
   --bg:         #F7F2EC;
   --bg-alt:     #EDE6DA;
@@ -22,6 +26,8 @@
   --ease:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* === GRUND === */
+/* Grundläggande stilar för hela dokumentet */
 html { scroll-behavior: smooth; }
 
 body {
@@ -38,7 +44,8 @@ a   { text-decoration: none; color: inherit; }
 
 h1, h2 { font-family: var(--rubrikfont); }
 
-
+/* === KNAPPAR === */
+/* Knappstil - används på alla sidor */
 .btn {
   display: inline-block;
   padding: 14px 36px;
@@ -69,6 +76,7 @@ h1, h2 { font-family: var(--rubrikfont); }
 }
 
 /* === LABEL === */
+/* Liten etikett-text ovanför rubriker */
 .label {
   display: inline-block;
   font-size: 11px;
@@ -80,6 +88,7 @@ h1, h2 { font-family: var(--rubrikfont); }
 }
 
 /* === NAVIGERING === */
+/* Navigeringsbar - fast positionerad högst upp */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -147,6 +156,7 @@ h1, h2 { font-family: var(--rubrikfont); }
 .nav__burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
 /* === SIDHUVUD (boka, tjänster, kontakt) === */
+/* Sidhuvud - används på boka, tjänster och kontakt */
 .page-header {
   padding-top: calc(var(--nav-h) + 80px);
   padding-bottom: 80px;
@@ -168,7 +178,8 @@ h1, h2 { font-family: var(--rubrikfont); }
   max-width: 480px;
 }
 
-
+/* === FORMULÄRFÄLT (boka & kontakt) === */
+/* Formulärfält - delas av boka och kontakt */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -205,6 +216,7 @@ h1, h2 { font-family: var(--rubrikfont); }
 }
 
 /* === FOOTER === */
+/* Footer - gemensam för alla sidor */
 .footer {
   background: var(--white);
   border-top: 1px solid var(--border);
@@ -227,6 +239,7 @@ h1, h2 { font-family: var(--rubrikfont); }
 .footer__contact p       { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
 
 /* === RESPONSIVITET === */
+/* Responsivitet - anpassning för mobil */
 @media (max-width: 900px) {
   .nav { padding: 0 32px; }
 
