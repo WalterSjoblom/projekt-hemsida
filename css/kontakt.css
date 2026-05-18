@@ -1,25 +1,32 @@
+/* ─────────────────────────────────────────
+   Runys Salong — kontakt.css
+───────────────────────────────────────── */
 
+/* === KONTAKTLAYOUT === */
+/* Kontaktsida - tre kolumner med info, öppettider och tom kolumn */
 .contact { padding: 80px 60px 100px; }
 .contact__inner {
   max-width: var(--max-w); margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px; align-items: start;
 }
 
-
+/* === INFOBLOCKR === */
 .contact__info { display: flex; flex-direction: column; gap: 36px; }
 .info-block    { display: flex; gap: 20px; align-items: flex-start; }
 .info-block__icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
 .info-block h3 { font-size: 19px; font-weight: 400; margin-bottom: 4px; }
 .info-block p  { font-size: 14px; color: var(--text-muted); }
 
-
+/* === ÖPPETTIDER === */
+/* Öppettider-kolumn */
 .contact__hours { padding-top: 4px; }
 .contact__hours h3 {
   font-size: 19px; font-weight: 400; margin-bottom: 16px;
   padding-bottom: 12px; border-bottom: 1px solid var(--border);
 }
 
-
+/* === TABELL === */
+/* Tabell med öppettider - växlande radfärger */
 .hours-table { border-collapse: collapse; width: 100%; }
 .hours-table th {
   background: var(--green-dark); color: var(--white);
@@ -30,7 +37,8 @@
 .hours-table tbody tr:nth-child(odd)  { background: var(--white); }
 .closed-row td { color: var(--text-muted); font-style: italic; background: var(--bg); }
 
-
+/* === KONTAKTFORMULÄR === */
+/* Kontaktformulär-sektion under huvudinnehållet */
 .formularsection {
   padding: 80px 60px;
   background: var(--bg-alt);
@@ -40,14 +48,16 @@
 .formular-inner h2       { margin-bottom: 32px; }
 .form-group textarea     { resize: none; }
 
-
+/* === RESPONSIVITET === */
+/* Responsivitet - en kolumn på mobil */
 @media (max-width: 900px) {
   .contact__inner    { grid-template-columns: 1fr; }
   .contact           { padding-left: 32px; padding-right: 32px; }
   .formularsection   { padding-left: 32px; padding-right: 32px; }
 }
 
-
+/* === KARTA === */
+/* Kartsektion med inbäddad OpenStreetMap */
 .kartsection {
   padding: 80px 60px;
   background: var(--white);

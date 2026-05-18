@@ -4,13 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Tjänster — Runys Salong</title>
+  <!-- Gemensam CSS för alla sidor -->
   <link rel="stylesheet" href="css/alla.css" />
+  <!-- Extern rubrikfont från Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" />
+  <!-- Sidsspecifik CSS -->
   <link rel="stylesheet" href="css/tjänster.css" />
 </head>
 <body>
 
-
+  <!-- Navigering -->
   <nav class="nav scrolled" id="navbar">
     <a href="startsida.html" class="nav__logo">Runys</a>
     <button class="nav__burger" id="burger" aria-label="Öppna meny">
@@ -24,7 +27,7 @@
     </ul>
   </nav>
 
-
+  <!-- Sidhuvud -->
   <header class="page-header">
     <div class="page-header__inner">
       <span class="label">Vad vi erbjuder</span>
@@ -33,12 +36,12 @@
     </div>
   </header>
 
-
+  <!-- Tjänsterlista uppdelad i kategorier -->
   <main class="services-main">
     <div class="services-main__inner">
 
-
-      <section class="category reveal-up">
+      <!-- Kategori: Klippning -->
+      <section class="category">
         <div class="category__header">
           <div class="category__line"></div>
           <h2>Klippning</h2>
@@ -75,8 +78,8 @@
         </div>
       </section>
 
-
-      <section class="category reveal-up">
+      <!-- Kategori: Färgning -->
+      <section class="category">
         <div class="category__header">
           <div class="category__line"></div>
           <h2>Färgning</h2>
@@ -120,8 +123,8 @@
         </div>
       </section>
 
-
-      <section class="category reveal-up">
+      <!-- Kategori: Hårbehandlingar -->
+      <section class="category">
         <div class="category__header">
           <div class="category__line"></div>
           <h2>Hårbehandlingar</h2>
@@ -151,8 +154,8 @@
         </div>
       </section>
 
-
-      <section class="category reveal-up">
+      <!-- Kategori: Styling -->
+      <section class="category">
         <div class="category__header">
           <div class="category__line"></div>
           <h2>Styling</h2>
@@ -178,8 +181,8 @@
     </div>
   </main>
 
-
-  <section class="cta-band reveal-up">
+  <!-- Uppmaning att boka tid -->
+  <section class="cta-band">
     <div class="cta-band__inner">
       <h2>Redo för en ny look?</h2>
       <p>Boka din tid online — enkelt och snabbt.</p>
@@ -187,7 +190,7 @@
     </div>
   </section>
 
-
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
@@ -200,7 +203,7 @@
         <a href="boka.html">Boka</a>
         <a href="kontakt.html">Kontakt</a>
       </div>
-            <div class="footer__contact">
+      <div class="footer__contact">
         <p>runys.salon@gmail.com</p>
         <p>073 106 70 23</p>
       </div>

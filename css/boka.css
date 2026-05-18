@@ -1,15 +1,22 @@
+/* ─────────────────────────────────────────
+   Runys Salong — boka.css
+───────────────────────────────────────── */
 
+/* === BOKNINGSLAYOUT === */
+/* Bokningssida - formulär och sidopanel sida vid sida */
 .booking { padding: 80px 60px 100px; }
 .booking__inner {
   max-width: var(--max-w); margin: 0 auto;
   display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start;
 }
 
-
+/* === FORMULÄR === */
+/* Bokningsformuläret */
 .bokningsformular { display: flex; flex-direction: column; gap: 24px; }
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 .form-group textarea { resize: vertical; min-height: 100px; }
 
+/* Wrapper för rullgardinsmeny med anpassad pil */
 .select-wrap { position: relative; }
 .select-wrap::after {
   content: '↓'; position: absolute; right: 16px; top: 50%;
@@ -17,7 +24,8 @@
 }
 .btn--submit { width: fit-content; padding: 16px 48px; font-size: 13px; }
 
-
+/* === SIDOPANEL === */
+/* Sidopanel med öppettider och information */
 .booking__aside {
   display: flex; flex-direction: column; gap: 16px;
   position: sticky; top: calc(var(--nav-h) + 32px);
@@ -35,7 +43,8 @@
 .aside-card--green { background: var(--green-dark); border-color: var(--green-dark); }
 .aside-quote { font-size: 18px; font-style: italic; font-weight: 300; color: var(--white); line-height: 1.5; text-align: center; }
 
-
+/* === RESPONSIVITET === */
+/* Responsivitet - sidopanel hamnar under formuläret */
 @media (max-width: 900px) {
   .booking__inner  { grid-template-columns: 1fr; }
   .booking__aside  { position: static; }

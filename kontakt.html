@@ -4,13 +4,16 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt — Runys Salong</title>
+  <!-- Gemensam CSS för alla sidor -->
   <link rel="stylesheet" href="css/alla.css" />
+  <!-- Extern rubrikfont från Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" />
+  <!-- Sidsspecifik CSS -->
   <link rel="stylesheet" href="css/kontakt.css" />
 </head>
 <body>
 
-  <!-- NAV -->
+  <!-- Navigering -->
   <nav class="nav scrolled" id="navbar">
     <a href="startsida.html" class="nav__logo">Runys</a>
     <button class="nav__burger" id="burger" aria-label="Öppna meny">
@@ -24,7 +27,7 @@
     </ul>
   </nav>
 
-  <!-- PAGE HEADER -->
+  <!-- Sidhuvud -->
   <header class="page-header">
     <div class="page-header__inner">
       <span class="label">Vi finns här för dig</span>
@@ -33,21 +36,19 @@
     </div>
   </header>
 
-  <!-- CONTACT LAYOUT -->
+  <!-- Huvudinnehåll: kontaktinfo och öppettider i tre kolumner -->
   <main class="contact">
     <div class="contact__inner">
 
-      <!-- INFO COLUMN -->
+      <!-- Kontaktinformation som ren text -->
       <div class="contact__info">
-
         <div class="info-block">
           <div class="info-block__icon">◈</div>
           <div>
             <h3>Adress</h3>
-            <p>Storgatan 12<br/>114 55 Stockholm</p>
+            <p>Aspgränd 3<br/>183 34 Täby</p>
           </div>
         </div>
-
         <div class="info-block">
           <div class="info-block__icon">◈</div>
           <div>
@@ -55,7 +56,6 @@
             <p>073 106 70 23</p>
           </div>
         </div>
-
         <div class="info-block">
           <div class="info-block__icon">◈</div>
           <div>
@@ -63,7 +63,6 @@
             <p>runys.salon@gmail.com</p>
           </div>
         </div>
-
         <div class="info-block">
           <div class="info-block__icon">◈</div>
           <div>
@@ -73,10 +72,9 @@
             <p>TikTok — Runys</p>
           </div>
         </div>
-
       </div>
 
-      <!-- ÖPPETTIDER -->
+      <!-- Öppettider i tabell med thead, tbody och tfoot -->
       <div class="contact__hours">
         <h3>Öppettider</h3>
         <table class="hours-table">
@@ -89,6 +87,7 @@
             <tr><td>Fredag</td><td>09:00–17:00</td></tr>
             <tr><td>Lördag</td><td>10:00–16:00</td></tr>
           </tbody>
+          <!-- Söndag i tfoot för avvikande styling -->
           <tfoot>
             <tr class="closed-row"><td>Söndag</td><td>Stängt</td></tr>
           </tfoot>
@@ -98,7 +97,7 @@
     </div>
   </main>
 
-  <!-- KONTAKTFORMULÄR -->
+  <!-- Kontaktformulär med e-post, ärende och meddelande -->
   <section class="formularsection">
     <div class="formular-inner">
       <h2>Skicka ett meddelande</h2>
@@ -120,7 +119,7 @@
     </div>
   </section>
 
-  <!-- KARTA -->
+  <!-- Inbäddad karta via OpenStreetMap -->
   <section class="kartsection">
     <h2>Hitta hit</h2>
     <iframe
@@ -130,14 +129,14 @@
     </iframe>
   </section>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
         <span class="nav__logo">Runys</span>
         <p>Salong för dig som värdesätter kvalitet och enkelhet.</p>
       </div>
-            <div class="footer__links">
+      <div class="footer__links">
         <a href="startsida.html">Hem</a>
         <a href="tjänster.html">Tjänster</a>
         <a href="boka.html">Boka</a>
