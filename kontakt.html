@@ -4,132 +4,130 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Kontakt — Runys Salong</title>
-  <!-- Gemensam CSS för alla sidor -->
   <link rel="stylesheet" href="css/alla.css" />
-  <!-- Extern rubrikfont från Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" />
-  <!-- Sidsspecifik CSS -->
   <link rel="stylesheet" href="css/kontakt.css" />
 </head>
 <body>
 
-  <!-- Navigering -->
-  <nav class="nav scrolled" id="navbar">
-    <a href="startsida.html" class="nav__logo">Runys</a>
-    <button class="nav__burger" id="burger" aria-label="Öppna meny">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="startsida.html">Hem</a></li>
-      <li><a href="tjänster.html">Tjänster</a></li>
-      <li><a href="boka.html">Boka</a></li>
-      <li><a href="kontakt.html" class="active">Kontakt</a></li>
-    </ul>
-  </nav>
-
-  <!-- Sidhuvud -->
-  <header class="page-header">
-    <div class="page-header__inner">
-      <span class="label">Vi finns här för dig</span>
-      <h1 class="page-header__title">Kontakt</h1>
-      <p class="page-header__sub">Har du frågor? Hör av dig — vi svarar så fort vi kan.</p>
-    </div>
+  <header>
+    <nav class="nav scrolled" id="navbar">
+      <a href="startsida.html" class="nav__logo">Runys</a>
+      <button class="nav__burger" id="burger" aria-label="Öppna meny">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="startsida.html">Hem</a></li>
+        <li><a href="tjänster.html">Tjänster</a></li>
+        <li><a href="boka.html">Boka</a></li>
+        <li><a href="kontakt.html" class="active">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Huvudinnehåll: kontaktinfo och öppettider i tre kolumner -->
-  <main class="contact">
-    <div class="contact__inner">
+  <main>
 
-      <!-- Kontaktinformation som ren text -->
-      <div class="contact__info">
-        <div class="info-block">
-          <div class="info-block__icon">◈</div>
-          <div>
-            <h3>Adress</h3>
-            <p>Aspgränd 3<br/>183 34 Täby</p>
-          </div>
-        </div>
-        <div class="info-block">
-          <div class="info-block__icon">◈</div>
-          <div>
-            <h3>Telefon</h3>
-            <p>073 106 70 23</p>
-          </div>
-        </div>
-        <div class="info-block">
-          <div class="info-block__icon">◈</div>
-          <div>
-            <h3>E-post</h3>
-            <p>runys.salon@gmail.com</p>
-          </div>
-        </div>
-        <div class="info-block">
-          <div class="info-block__icon">◈</div>
-          <div>
-            <h3>Sociala medier</h3>
-            <p>Instagram — Runys</p>
-            <p>Facebook — Runys</p>
-            <p>TikTok — Runys</p>
-          </div>
-        </div>
+    <section class="page-header">
+      <div class="page-header__inner">
+        <span class="label">Vi finns här för dig</span>
+        <h1 class="page-header__title">Kontakt</h1>
+        <p class="page-header__sub">Har du frågor? Hör av dig — vi svarar så fort vi kan.</p>
       </div>
+    </section>
 
-      <!-- Öppettider i tabell med thead, tbody och tfoot -->
-      <div class="contact__hours">
-        <h3>Öppettider</h3>
-        <table class="hours-table">
-          <thead>
-            <tr><th>Dag</th><th>Tid</th></tr>
-          </thead>
-          <tbody>
-            <tr><td>Måndag</td><td>09:00–18:00</td></tr>
-            <tr><td>Tisdag–Torsdag</td><td>09:00–18:00</td></tr>
-            <tr><td>Fredag</td><td>09:00–17:00</td></tr>
-            <tr><td>Lördag</td><td>10:00–16:00</td></tr>
-          </tbody>
-          <!-- Söndag i tfoot för avvikande styling -->
-          <tfoot>
-            <tr class="closed-row"><td>Söndag</td><td>Stängt</td></tr>
-          </tfoot>
-        </table>
+    <section class="contact">
+      <div class="contact__inner">
+
+        <div class="contact__info">
+          <div class="info-block">
+            <div class="info-block__icon">◈</div>
+            <div>
+              <h3>Adress</h3>
+              <p>Storgatan 12<br/>114 55 Stockholm</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-block__icon">◈</div>
+            <div>
+              <h3>Telefon</h3>
+              <p>073 106 70 23</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-block__icon">◈</div>
+            <div>
+              <h3>E-post</h3>
+              <p>runys.salon@gmail.com</p>
+            </div>
+          </div>
+          <div class="info-block">
+            <div class="info-block__icon">◈</div>
+            <div>
+              <h3>Sociala medier</h3>
+              <p>Instagram — Runys</p>
+              <p>Facebook — Runys</p>
+              <p>TikTok — Runys</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="contact__hours">
+          <h3>Öppettider</h3>
+          <table class="hours-table">
+            <thead>
+              <tr><th>Dag</th><th>Tid</th></tr>
+            </thead>
+            <tbody>
+              <tr><td>Måndag</td><td>09:00–18:00</td></tr>
+              <tr><td>Tisdag–Torsdag</td><td>09:00–18:00</td></tr>
+              <tr><td>Fredag</td><td>09:00–17:00</td></tr>
+              <tr><td>Lördag</td><td>10:00–16:00</td></tr>
+            </tbody>
+            <tfoot>
+              <tr class="closed-row"><td>Söndag</td><td>Stängt</td></tr>
+            </tfoot>
+          </table>
+        </div>
+
       </div>
+    </section>
 
-    </div>
+    <section class="formularsection">
+      <div class="formular-inner">
+        <h2>Skicka ett meddelande</h2>
+        <form id="kontaktformular" class="kontaktformular" novalidate>
+          <div class="form-group">
+            <label for="cEmail">E-postadress</label>
+            <input type="email" id="cEmail" name="email" placeholder="din@email.se" />
+            <span class="form-error" id="cEmailError"></span>
+          </div>
+          <div class="form-group">
+            <label for="cSubject">Ärenderubrik</label>
+            <input type="text" id="cSubject" name="subject" placeholder="Vad gäller ditt ärende?" />
+            <span class="form-error" id="cSubjectError"></span>
+          </div>
+          <div class="form-group">
+            <label for="cMessage">Meddelande</label>
+            <textarea id="cMessage" name="message" rows="5" placeholder="Skriv ditt meddelande här..."></textarea>
+            <span class="form-error" id="cMessageError"></span>
+          </div>
+          <button type="submit" class="btn" id="cSubmitBtn">Skicka meddelande</button>
+          <p class="form-success" id="cSuccess"></p>
+        </form>
+      </div>
+    </section>
+
+    <section class="kartsection">
+      <h2>Hitta hit</h2>
+      <iframe
+        class="karta"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=18.0586,59.4393,18.0786,59.4493&layer=mapnik&marker=59.4443,18.0686"
+        title="Karta över salongens plats">
+      </iframe>
+    </section>
+
   </main>
 
-  <!-- Kontaktformulär med e-post, ärende och meddelande -->
-  <section class="formularsection">
-    <div class="formular-inner">
-      <h2>Skicka ett meddelande</h2>
-      <form class="kontaktformular" id="kontaktformular" onsubmit="event.preventDefault()">
-        <div class="form-group">
-          <label for="cEmail">E-postadress</label>
-          <input type="email" id="cEmail" name="email" placeholder="din@email.se" />
-        </div>
-        <div class="form-group">
-          <label for="cSubject">Ärenderubrik</label>
-          <input type="text" id="cSubject" name="subject" placeholder="Vad gäller ditt ärende?" />
-        </div>
-        <div class="form-group">
-          <label for="cMessage">Meddelande</label>
-          <textarea id="cMessage" name="message" rows="5" style="resize: none;" placeholder="Skriv ditt meddelande här..."></textarea>
-        </div>
-        <button type="submit" class="btn" id="cSubmitBtn">Skicka meddelande</button>
-      </form>
-    </div>
-  </section>
-
-  <!-- Inbäddad karta via OpenStreetMap -->
-  <section class="kartsection">
-    <h2>Hitta hit</h2>
-    <iframe
-      class="karta"
-      src="https://www.openstreetmap.org/export/embed.html?bbox=18.0586,59.4393,18.0786,59.4493&layer=mapnik&marker=59.4443,18.0686"
-      title="Karta över salongens plats">
-    </iframe>
-  </section>
-
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">

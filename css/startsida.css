@@ -1,9 +1,4 @@
-/* ─────────────────────────────────────────
-   Runys Salong — startsida.css
-───────────────────────────────────────── */
-
 /* Startsidan har transparent nav som blir synlig vid scroll */
-/* Transparent navigering - startsidan börjar genomskinlig */
 .nav__logo { color: var(--white); transition: color 0.4s; }
 .nav__links a { color: rgba(255,255,255,0.85); }
 .nav__links a:hover,
@@ -17,7 +12,6 @@
 .nav.scrolled .nav__burger span { background: var(--text); }
 
 /* === LÄNKPIL === */
-/* Länk med pil - används i om oss-sektionen */
 .link-arrow {
   font-size: 14px;
   font-weight: 500;
@@ -30,7 +24,6 @@
 .link-arrow:hover { color: var(--green); border-color: var(--green); }
 
 /* === HERO === */
-/* Hero-sektion - helfärmsbild med text ovanpå */
 .hero {
   position: relative;
   height: 100vh;
@@ -47,14 +40,11 @@
   transform: scale(1.05);
   animation: heroZoom 10s var(--ease) forwards;
 }
-/* Animation - bilden zoomar in när sidan laddas */
 @keyframes heroZoom { to { transform: scale(1); } }
-/* Mörkt lager ovanpå bilden för bättre läsbarhet */
 .hero__overlay {
   position: absolute; inset: 0;
   background: linear-gradient(135deg, rgba(20,19,17,0.55) 0%, rgba(20,19,17,0.25) 100%);
 }
-/* Centrerad text i hero */
 .hero__content {
   position: relative; z-index: 2;
   text-align: center; color: var(--white);
@@ -63,7 +53,6 @@
 .hero__eyebrow { font-size: 12px; letter-spacing: 0.3em; text-transform: uppercase; opacity: 0.8; }
 .hero__title   { font-size: clamp(64px, 12vw, 130px); font-weight: 300; letter-spacing: 0.4em; line-height: 1; }
 .hero__sub     { font-size: clamp(16px, 2.5vw, 22px); font-style: italic; font-weight: 300; opacity: 0.9; }
-/* Scrollindikator längst ner i hero */
 .hero__scroll {
   position: absolute; bottom: 40px; left: 50%; transform: translateX(-50%);
   display: flex; flex-direction: column; align-items: center; gap: 8px;
@@ -73,7 +62,6 @@
 .hero__scroll-line { width: 1px; height: 50px; background: rgba(255,255,255,0.4); }
 
 /* === INTRO === */
-/* Om oss-sektion med text och statistikkort */
 .intro { padding: 120px 60px; background: var(--white); }
 .intro__inner {
   max-width: 1200px; margin: 0 auto;
@@ -92,7 +80,6 @@
 .intro__stat-label { font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text-muted); }
 
 /* === TJÄNSTER PREVIEW === */
-/* Förhandsgranskning av tjänster på startsidan */
 .services-preview { padding: 120px 60px; background: var(--bg); }
 .services-preview__inner { max-width: 1200px; margin: 0 auto; text-align: center; }
 .services-preview__inner > h2 { font-size: clamp(28px, 4vw, 48px); font-weight: 400; margin-bottom: 60px; }
@@ -114,7 +101,6 @@
 .service-card__price { font-size: 13px; font-weight: 500; color: var(--green-dark); letter-spacing: 0.05em; }
 
 /* === CITAT === */
-/* Citatband med bakgrundsbild */
 .quote-band {
   background: var(--bg-dark);
   background-image: url("../images/bild.png");
@@ -127,7 +113,6 @@
 }
 
 /* === RESPONSIVITET === */
-/* Responsivitet - en kolumn på mobil */
 @media (max-width: 900px) {
   .intro__inner           { grid-template-columns: 1fr; gap: 48px; }
   .intro__visual          { grid-template-columns: repeat(3, 1fr); }

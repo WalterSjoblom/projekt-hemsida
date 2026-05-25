@@ -4,72 +4,68 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Boka tid — Runys Salong</title>
-  <!-- Gemensam CSS för alla sidor -->
   <link rel="stylesheet" href="css/alla.css" />
-  <!-- Extern rubrikfont från Google Fonts -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" />
-  <!-- Sidsspecifik CSS -->
   <link rel="stylesheet" href="css/boka.css" />
 </head>
 <body>
 
-  <!-- Navigering, scrolled-klassen gör den synlig direkt på undersidor -->
-  <nav class="nav scrolled" id="navbar">
-    <a href="startsida.html" class="nav__logo">Runys</a>
-    <button class="nav__burger" id="burger" aria-label="Öppna meny">
-      <span></span><span></span><span></span>
-    </button>
-    <ul class="nav__links" id="navLinks">
-      <li><a href="startsida.html">Hem</a></li>
-      <li><a href="tjänster.html">Tjänster</a></li>
-      <li><a href="boka.html" class="active">Boka</a></li>
-      <li><a href="kontakt.html">Kontakt</a></li>
-    </ul>
-  </nav>
-
-  <!-- Sidhuvud med titel och beskrivning -->
-  <header class="page-header">
-    <div class="page-header__inner">
-      <span class="label">Reservera din plats</span>
-      <h1 class="page-header__title">Boka tid</h1>
-      <p class="page-header__sub">Fyll i formuläret nedan, så kontaktar vi dig för bekräftelse inom 24 timmar.</p>
-    </div>
+  <header>
+    <nav class="nav scrolled" id="navbar">
+      <a href="startsida.html" class="nav__logo">Runys</a>
+      <button class="nav__burger" id="burger" aria-label="Öppna meny">
+        <span></span><span></span><span></span>
+      </button>
+      <ul class="nav__links" id="navLinks">
+        <li><a href="startsida.html">Hem</a></li>
+        <li><a href="tjänster.html">Tjänster</a></li>
+        <li><a href="boka.html" class="active">Boka</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </nav>
   </header>
 
-  <!-- Huvudinnehåll: bokningsformulär och sidopanel -->
   <main class="booking">
+
+    <section class="page-header">
+      <div class="page-header__inner">
+        <span class="label">Reservera din plats</span>
+        <h1 class="page-header__title">Boka tid</h1>
+        <p class="page-header__sub">Fyll i formuläret nedan, så kontaktar vi dig för bekräftelse inom 24 timmar.</p>
+      </div>
+    </section>
+
     <div class="booking__inner">
 
-      <!-- Bokningsformulär -->
-      <div class="booking__form-wrap">
-        <!-- onsubmit förhindrar att sidan laddas om när formuläret skickas -->
-        <form class="bokningsformular" id="bokningsformular" onsubmit="event.preventDefault()">
+      <div class="booking__form-wrap reveal-up">
+        <form id="bokningsformular" class="bokningsformular" novalidate>
 
-          <!-- Förnamn och efternamn på samma rad -->
           <div class="form-row">
             <div class="form-group">
               <label for="firstName">Förnamn</label>
               <input type="text" id="firstName" name="firstName" placeholder="Anna" />
+              <span class="form-error" id="firstNameError"></span>
             </div>
             <div class="form-group">
               <label for="lastName">Efternamn</label>
               <input type="text" id="lastName" name="lastName" placeholder="Lindgren" />
+              <span class="form-error" id="lastNameError"></span>
             </div>
           </div>
 
-          <!-- E-post och telefon på samma rad -->
           <div class="form-row">
             <div class="form-group">
               <label for="email">E-post</label>
               <input type="email" id="email" name="email" placeholder="anna@exempel.se" />
+              <span class="form-error" id="emailError"></span>
             </div>
             <div class="form-group">
               <label for="phone">Telefon</label>
               <input type="tel" id="phone" name="phone" placeholder="070-123 45 67" />
+              <span class="form-error" id="phoneError"></span>
             </div>
           </div>
 
-          <!-- Rullgardinsmeny för tjänst -->
           <div class="form-group">
             <label for="service">Tjänst</label>
             <div class="select-wrap">
@@ -96,13 +92,14 @@
                 </optgroup>
               </select>
             </div>
+            <span class="form-error" id="serviceError"></span>
           </div>
 
-          <!-- Datum och tid på samma rad -->
           <div class="form-row">
             <div class="form-group">
               <label for="date">Önskat datum</label>
               <input type="text" id="date" name="date" placeholder="t.ex. 2026-04-15" />
+              <span class="form-error" id="dateError"></span>
             </div>
             <div class="form-group">
               <label for="time">Önskad tid</label>
@@ -120,24 +117,22 @@
                   <option>17:00</option>
                 </select>
               </div>
+              <span class="form-error" id="timeError"></span>
             </div>
           </div>
 
-          <!-- Fritext för önskemål, fast storlek -->
           <div class="form-group">
             <label for="message">Meddelande / önskemål</label>
-            <textarea id="message" name="message" rows="6" placeholder="T.ex. hårtyp, längd, inspirationsbilder m.m." style="resize: none;"></textarea>
+            <textarea id="message" name="message" rows="6" placeholder="T.ex. hårtyp, längd, inspirationsbilder m.m."></textarea>
           </div>
 
-          <button type="submit" class="btn btn--submit" id="submitBtn">
-            Skicka bokningsförfrågan
-          </button>
+          <button type="submit" class="btn btn--submit" id="submitBtn">Skicka bokningsförfrågan</button>
+          <p class="form-success" id="bokaSuccess"></p>
 
         </form>
       </div>
 
-      <!-- Sidopanel med öppettider och information -->
-      <aside class="booking__aside">
+      <aside class="booking__aside reveal-up">
         <div class="aside-card">
           <h3>Öppettider</h3>
           <ul class="hours-list">
@@ -155,16 +150,15 @@
             <li>Vi tar Swish, kort och kontant</li>
           </ul>
         </div>
-        <!-- Grönt kort med citat -->
         <div class="aside-card aside-card--green">
           <p class="aside-quote">"En stund för dig. En behandling för ditt hår."</p>
         </div>
       </aside>
 
     </div>
+
   </main>
 
-  <!-- Footer -->
   <footer class="footer">
     <div class="footer__inner">
       <div class="footer__brand">
