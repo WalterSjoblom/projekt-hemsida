@@ -1,68 +1,62 @@
+/* Boka — layout och styling för bokningssidan */
 
-/* === BOKNINGSLAYOUT === */
+/* Tvåkolumnslayout: formulär till vänster, sidopanel till höger */
 .booking { padding: 80px 60px 100px; }
 .booking__inner {
   max-width: var(--max-w); margin: 0 auto;
   display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start;
 }
 
-/* === FORMULÄR === */
+/* Formuläret staplar sina fält vertikalt */
 .bokningsformular { display: flex; flex-direction: column; gap: 24px; }
-.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
-.form-group textarea { resize: vertical; min-height: 100px; }
 
+/* Två fält bredvid varandra på samma rad */
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+
+/* Select-wrapper med anpassad nedåtpil */
 .select-wrap { position: relative; }
 .select-wrap::after {
   content: '↓'; position: absolute; right: 16px; top: 50%;
   transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 13px;
 }
+
+/* Skicka-knapp — smalare variant av .btn */
 .btn--submit { width: fit-content; padding: 16px 48px; font-size: 13px; }
 
-/* === SIDOPANEL === */
+/* Sidopanel — stannar kvar vid scroll */
 .booking__aside {
   display: flex; flex-direction: column; gap: 16px;
   position: sticky; top: calc(var(--nav-h) + 32px);
 }
+
+/* Kort i sidopanelen */
 .aside-card { background: var(--white); border: 1px solid var(--border); padding: 28px 24px; }
 .aside-card h3 {
   font-size: 20px; font-weight: 400; margin-bottom: 16px;
   padding-bottom: 12px; border-bottom: 1px solid var(--border);
 }
+
+/* Öppettidslista */
 .hours-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .hours-list li { display: flex; justify-content: space-between; font-size: 14px; }
 .hours-list li .closed { color: var(--text-muted); font-style: italic; }
+
+/* Informationslista */
 .info-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .info-list li { font-size: 13px; color: var(--text-muted); }
+
+/* Grönt kort med citat */
 .aside-card--green { background: var(--green-dark); border-color: var(--green-dark); }
 .aside-quote { font-size: 18px; font-style: italic; font-weight: 300; color: var(--white); line-height: 1.5; text-align: center; }
 
-/* === RESPONSIVITET === */
+/* Responsivitet */
 @media (max-width: 900px) {
-  .booking__inner  { grid-template-columns: 1fr; }
-  .booking__aside  { position: static; }
-  .booking         { padding-left: 32px; padding-right: 32px; }
+  /* Sidopanel hamnar under formuläret på mobil */
+  .booking__inner { grid-template-columns: 1fr; }
+  .booking__aside { position: static; }
+  .booking        { padding-left: 32px; padding-right: 32px; }
 }
 @media (max-width: 560px) {
+  /* Formulärrader staplas vertikalt på små skärmar */
   .form-row { grid-template-columns: 1fr; }
-}
-
-/* === FELMEDDELANDEN & BEKRÄFTELSE === */
-.form-error {
-  font-size: 12px;
-  color: #c0392b;
-  min-height: 18px;
-  display: block;
-  font-family: var(--typsnitt);
-}
-.form-group input.input-error,
-.form-group textarea.input-error,
-.form-group select.input-error {
-  border-color: #c0392b;
-}
-.form-success {
-  font-size: 14px;
-  color: var(--green-dark);
-  margin-top: 16px;
-  font-style: italic;
-  min-height: 20px;
 }

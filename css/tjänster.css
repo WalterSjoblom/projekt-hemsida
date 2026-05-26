@@ -1,20 +1,25 @@
+/* Tjänster — layout och styling för prislistan */
 
-/* === TJÄNSTERLAYOUT === */
+/* Huvudinnehåll med vertikal stack av kategorier */
 .services-main { padding: 80px 60px 100px; }
 .services-main__inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 64px; }
 
-/* === KATEGORIER === */
+/* Kategorirubrik med dekorativ linje till vänster */
 .category__header { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
 .category__line   { width: 40px; height: 1px; background: var(--green); flex-shrink: 0; }
 .category__header h2 { font-size: 32px; font-weight: 400; letter-spacing: 0.02em; }
+
+/* Lista av tjänster under varje kategori */
 .category__items  { border-top: 1px solid var(--border); }
 
-/* === TJÄNSTRADER === */
+/* Enskild tjänstrad med namn/beskrivning till vänster och pris till höger */
 .service-row {
   display: flex; justify-content: space-between; align-items: flex-start;
   padding: 22px 0; border-bottom: 1px solid var(--border);
   transition: background 0.2s; gap: 24px;
 }
+
+/* Subtil grön bakgrund och indrag vid hover */
 .service-row:hover {
   background: rgba(122, 155, 112, 0.04);
   padding-left: 12px; padding-right: 12px;
@@ -23,15 +28,17 @@
 }
 .service-row__info h3  { font-size: 20px; font-weight: 400; margin-bottom: 4px; }
 .service-row__info p   { font-size: 13px; color: var(--text-muted); }
+
+/* Pris — högerställt och bryter inte rad */
 .service-row__price    { font-size: 15px; font-weight: 500; color: var(--green-dark); white-space: nowrap; flex-shrink: 0; padding-top: 4px; }
 
-/* === CTA-BAND === */
+/* CTA-band längst ned — uppmaning att boka */
 .cta-band { background: var(--bg-alt); padding: 90px 60px; text-align: center; border-top: 1px solid var(--border); }
 .cta-band__inner { max-width: 540px; margin: 0 auto; }
 .cta-band__inner h2 { font-size: clamp(28px, 4vw, 46px); font-weight: 400; margin-bottom: 12px; }
 .cta-band__inner p  { color: var(--text-muted); font-size: 15px; margin-bottom: 32px; }
 
-/* === RESPONSIVITET === */
+/* Responsivitet */
 @media (max-width: 900px) {
   .services-main, .cta-band { padding-left: 32px; padding-right: 32px; }
 }

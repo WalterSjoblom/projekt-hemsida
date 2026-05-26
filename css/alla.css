@@ -1,5 +1,6 @@
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+/* Globala CSS-variabler för färger, typsnitt och mått */
 :root {
   --bg:         #F7F2EC;
   --bg-alt:     #EDE6DA;
@@ -21,8 +22,10 @@
   --ease:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
+/* Mjuk scrollning för hela sidan */
 html { scroll-behavior: smooth; }
 
+/* Grundläggande body-stil */
 body {
   background: var(--bg);
   color: var(--text);
@@ -32,12 +35,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Bilder blockvisas och länkar ärver färg */
 img { display: block; max-width: 100%; }
 a   { text-decoration: none; color: inherit; }
 
+/* Rubriker använder extern font */
 h1, h2 { font-family: var(--rubrikfont); }
 
-
+/* Knapp — grundstil */
 .btn {
   display: inline-block;
   padding: 14px 36px;
@@ -52,11 +57,15 @@ h1, h2 { font-family: var(--rubrikfont); }
   transition: background 0.3s var(--ease), color 0.3s, transform 0.2s;
   cursor: pointer;
 }
+
+/* Knapp hover — transparent bakgrund */
 .btn:hover {
   background: transparent;
   color: var(--green);
   transform: translateY(-2px);
 }
+
+/* Knapp outline-variant */
 .btn--outline {
   background: transparent;
   color: var(--text);
@@ -67,7 +76,7 @@ h1, h2 { font-family: var(--rubrikfont); }
   color: var(--white);
 }
 
-/* === LABEL === */
+/* Liten etikett i versaler ovanför rubriker */
 .label {
   display: inline-block;
   font-size: 11px;
@@ -78,7 +87,7 @@ h1, h2 { font-family: var(--rubrikfont); }
   margin-bottom: 12px;
 }
 
-/* === NAVIGERING === */
+/* Navigeringsfält — fast position högst upp */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -89,17 +98,23 @@ h1, h2 { font-family: var(--rubrikfont); }
   padding: 0 60px;
   z-index: 100;
 }
+
+/* Nav får bakgrund och skugga när man scrollar */
 .nav.scrolled {
   background: rgba(247, 242, 236, 0.96);
   backdrop-filter: blur(12px);
   box-shadow: 0 1px 0 var(--border);
 }
+
+/* Logotyp i navbaren */
 .nav__logo {
   font-family: var(--typsnitt);
   font-size: 24px;
   font-weight: 400;
   letter-spacing: 0.3em;
 }
+
+/* Navlänkar — horisontell lista */
 .nav__links {
   display: flex;
   list-style: none;
@@ -113,6 +128,8 @@ h1, h2 { font-family: var(--rubrikfont); }
   position: relative;
   transition: color 0.3s;
 }
+
+/* Understrecksanimation på hover och aktiv länk */
 .nav__links a::after {
   content: '';
   position: absolute;
@@ -126,6 +143,7 @@ h1, h2 { font-family: var(--rubrikfont); }
 .nav__links a:hover,
 .nav__links a.active { color: var(--text); }
 
+/* Hamburgarknapp — dold på desktop */
 .nav__burger {
   display: none;
   flex-direction: column;
@@ -141,11 +159,13 @@ h1, h2 { font-family: var(--rubrikfont); }
   background: var(--text);
   transition: all 0.3s var(--ease);
 }
+
+/* Hamburgarknapp animeras till kryss när menyn är öppen */
 .nav__burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .nav__burger.open span:nth-child(2) { opacity: 0; }
 .nav__burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* === SIDHUVUD (boka, tjänster, kontakt) === */
+/* Sidhuvud — används på boka, tjänster och kontakt */
 .page-header {
   padding-top: calc(var(--nav-h) + 80px);
   padding-bottom: 80px;
@@ -167,7 +187,7 @@ h1, h2 { font-family: var(--rubrikfont); }
   max-width: 480px;
 }
 
-
+/* Formulärgrupp — gemensam stil för boka och kontakt */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -181,6 +201,8 @@ h1, h2 { font-family: var(--rubrikfont); }
   text-transform: uppercase;
   color: var(--text-muted);
 }
+
+/* Inputfält, textarea och select delar samma grundstil */
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -196,6 +218,8 @@ h1, h2 { font-family: var(--rubrikfont); }
   appearance: none;
   -webkit-appearance: none;
 }
+
+/* Grön ram och skugga när ett fält är i fokus */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
@@ -203,7 +227,35 @@ h1, h2 { font-family: var(--rubrikfont); }
   box-shadow: 0 0 0 3px rgba(122, 155, 112, 0.15);
 }
 
-/* === FOOTER === */
+/* Textarea kan inte storleksändras manuellt */
+.form-group textarea { resize: none; }
+
+/* Felmeddelande under ett ogiltigt fält */
+.form-error {
+  font-size: 12px;
+  color: #c0392b;
+  min-height: 18px;
+  display: block;
+  font-family: var(--typsnitt);
+}
+
+/* Röd ram på fält som inte klarar validering */
+.form-group input.input-error,
+.form-group textarea.input-error,
+.form-group select.input-error {
+  border-color: #c0392b;
+}
+
+/* Grön bekräftelsetext när formuläret skickas */
+.form-success {
+  font-size: 14px;
+  color: var(--green-dark);
+  margin-top: 16px;
+  font-style: italic;
+  min-height: 20px;
+}
+
+/* Footer */
 .footer {
   background: var(--white);
   border-top: 1px solid var(--border);
@@ -225,10 +277,11 @@ h1, h2 { font-family: var(--rubrikfont); }
 .footer__links a:hover   { color: var(--text); }
 .footer__contact p       { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
 
-/* === RESPONSIVITET === */
+/* Responsivitet — mobilanpassning under 900px */
 @media (max-width: 900px) {
   .nav { padding: 0 32px; }
 
+  /* Navlänkar döljs och visas som dropdown när menyn öppnas */
   .nav__links {
     display: none;
     flex-direction: column;
@@ -242,6 +295,8 @@ h1, h2 { font-family: var(--rubrikfont); }
   }
   .nav__links.open { display: flex; }
   .nav__links a    { color: var(--text); font-size: 15px; }
+
+  /* Hamburgarknapp visas på mobil */
   .nav__burger     { display: flex; }
 
   .page-header  { padding-left: 32px; padding-right: 32px; }

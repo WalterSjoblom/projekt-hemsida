@@ -1,75 +1,53 @@
+/* Kontakt — layout och styling för kontaktsidan */
+
+/* Trekolumlayout: info, öppettider och eventuellt en tredje kolumn */
 .contact { padding: 80px 60px 100px; }
 .contact__inner {
   max-width: var(--max-w); margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px; align-items: start;
 }
 
-/* === INFOBLOCKR === */
+/* Infoblockar — ikon och text bredvid varandra */
 .contact__info { display: flex; flex-direction: column; gap: 36px; }
 .info-block    { display: flex; gap: 20px; align-items: flex-start; }
 .info-block__icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
 .info-block h3 { font-size: 19px; font-weight: 400; margin-bottom: 4px; }
 .info-block p  { font-size: 14px; color: var(--text-muted); }
 
-/* === ÖPPETTIDER === */
+/* Öppettider — rubrik med understrek */
 .contact__hours { padding-top: 4px; }
 .contact__hours h3 {
   font-size: 19px; font-weight: 400; margin-bottom: 16px;
   padding-bottom: 12px; border-bottom: 1px solid var(--border);
 }
 
-/* === TABELL === */
+/* Tabell för öppettider */
 .hours-table { border-collapse: collapse; width: 100%; }
+
+/* Tabellhuvud — grön bakgrund */
 .hours-table th {
   background: var(--green-dark); color: var(--white);
   padding: 8px 16px; text-align: left; font-weight: 500; letter-spacing: 0.05em;
 }
 .hours-table td { padding: 8px 16px; font-size: 14px; }
+
+/* Varannan rad har ljusare bakgrund */
 .hours-table tbody tr:nth-child(even) { background: var(--bg-alt); }
 .hours-table tbody tr:nth-child(odd)  { background: var(--white); }
+
+/* Sista raden i tfoot — stängt — har egen stil */
 .closed-row td { color: var(--text-muted); font-style: italic; background: var(--bg); }
 
-/* === KONTAKTFORMULÄR === */
+/* Kontaktformulärsektion med ljus bakgrund */
 .formularsection {
   padding: 80px 60px;
   background: var(--bg-alt);
   border-top: 1px solid var(--border);
 }
-.formular-inner          { max-width: 600px; margin: 0 auto; }
-.formular-inner h2       { margin-bottom: 32px; }
-.form-group textarea     { resize: none; }
+.formular-inner    { max-width: 600px; margin: 0 auto; }
+.formular-inner h2 { margin-bottom: 32px; }
 
-/* === FELMEDDELANDEN & BEKRÄFTELSE === */
-.form-error {
-  font-size: 12px;
-  color: #c0392b;
-  min-height: 18px;
-  display: block;
-  font-style: normal;
-  font-family: var(--typsnitt);
-}
-
-.form-group input.input-error,
-.form-group textarea.input-error {
-  border-color: #c0392b;
-}
-
-.form-success {
-  font-size: 14px;
-  color: var(--green-dark);
-  margin-top: 16px;
-  font-style: italic;
-  min-height: 20px;
-}
-
-/* === RESPONSIVITET === */
-@media (max-width: 900px) {
-  .contact__inner    { grid-template-columns: 1fr; }
-  .contact           { padding-left: 32px; padding-right: 32px; }
-  .formularsection   { padding-left: 32px; padding-right: 32px; }
-}
-
-/* === KARTA === */
+/* Kartsektion */
 .kartsection {
   padding: 80px 60px;
   background: var(--white);
@@ -81,6 +59,8 @@
   font-size: 32px;
   font-weight: 400;
 }
+
+/* Inbäddad karta via iframe */
 .karta {
   display: block;
   width: 100%;
@@ -90,7 +70,14 @@
   border: 1px solid var(--border);
 }
 
+/* Responsivitet */
 @media (max-width: 900px) {
-  .kartsection { padding-left: 32px; padding-right: 32px; }
-  .karta       { height: 280px; }
+  /* Alla kolumner staplas vertikalt */
+  .contact__inner  { grid-template-columns: 1fr; }
+  .contact         { padding-left: 32px; padding-right: 32px; }
+  .formularsection { padding-left: 32px; padding-right: 32px; }
+  .kartsection     { padding-left: 32px; padding-right: 32px; }
+
+  /* Kartan krymper på mobil */
+  .karta           { height: 280px; }
 }
