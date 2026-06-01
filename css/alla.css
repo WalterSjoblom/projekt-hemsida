@@ -1,28 +1,42 @@
+/* Nollställer marginaler, padding och box-sizing för alla element så webbläsarens
+   standardstilar inte påverkar layouten */
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
-/* Globala CSS-variabler för färger, typsnitt och mått */
+/* Globala CSS-variabler — definieras en gång här och används överallt i alla CSS-filer.
+   Gör det enkelt att byta färger och mått på ett ställe */
 :root {
+  /* Bakgrundsfärger — från ljus beige till mörkbrun */
   --bg:         #F7F2EC;
   --bg-alt:     #EDE6DA;
   --bg-dark:    #1E1D1A;
+
+  /* Gröna accentfärger i tre nyanser */
   --green:      #7A9B70;
   --green-light:#B4CEAF;
   --green-dark: #536B4D;
+
   --beige:      #C4AD94;
+
+  /* Textfärger */
   --text:       #1A1A18;
   --text-muted: #7A756C;
+
   --white:      #FDFAF7;
   --border:     #DDD5C8;
 
+  /* Typsnitt — --typsnitt används för brödtext, --rubrikfont för h1 och h2 */
   --typsnitt:   Georgia, 'Times New Roman', serif;
   --rubrikfont: 'Playfair Display', Georgia, serif;
 
+  /* --nav-h är navbarens höjd, används för att beräkna padding under navbaren */
   --nav-h: 72px;
+  /* --max-w begränsar innehållets bredd så det inte sträcker sig för brett på stora skärmar */
   --max-w: 1100px;
+  /* --ease är en anpassad övergångskurva för mjuka animationer */
   --ease:  cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-/* Mjuk scrollning för hela sidan */
+/* Mjuk scrollning när man klickar på ankarlänkar */
 html { scroll-behavior: smooth; }
 
 /* Grundläggande body-stil */
@@ -31,18 +45,21 @@ body {
   color: var(--text);
   font-family: var(--typsnitt);
   font-size: 16px;
+  /* 1.7 ger lite mer luft mellan textraderna för bättre läsbarhet */
   line-height: 1.7;
+  /* Döljer horisontell scrollning som kan uppstå av animationer */
   overflow-x: hidden;
 }
 
-/* Bilder blockvisas och länkar ärver färg */
+/* Bilder visas som block för att undvika oönskat mellanrum under dem */
 img { display: block; max-width: 100%; }
+/* Länkar ärver omgivande textfärg istället för standardblå */
 a   { text-decoration: none; color: inherit; }
 
-/* Rubriker använder extern font */
+/* Rubriker använder den externa fonten Playfair Display från Google Fonts */
 h1, h2 { font-family: var(--rubrikfont); }
 
-/* Knapp — grundstil */
+/* Knapp — grundstil som används på alla sidor */
 .btn {
   display: inline-block;
   padding: 14px 36px;
@@ -51,21 +68,24 @@ h1, h2 { font-family: var(--rubrikfont); }
   font-family: var(--typsnitt);
   font-size: 13px;
   font-weight: 500;
+  /* Lite extra mellanrum mellan bokstäverna för ett elegantare uttryck */
   letter-spacing: 0.15em;
   text-transform: uppercase;
+  /* Kantlinje med samma färg som bakgrunden — syns tydligt vid hover */
   border: 2px solid var(--green);
   transition: background 0.3s var(--ease), color 0.3s, transform 0.2s;
   cursor: pointer;
 }
 
-/* Knapp hover — transparent bakgrund */
+/* Vid hover töms bakgrunden och texten blir grön — kantlinjen syns då tydligt */
 .btn:hover {
   background: transparent;
   color: var(--green);
+  /* Lyfter knappen 2px uppåt för en tryckt känsla */
   transform: translateY(-2px);
 }
 
-/* Knapp outline-variant */
+/* Outline-variant — används på startsidan framför hero-bilden */
 .btn--outline {
   background: transparent;
   color: var(--text);
@@ -76,7 +96,7 @@ h1, h2 { font-family: var(--rubrikfont); }
   color: var(--white);
 }
 
-/* Liten etikett i versaler ovanför rubriker */
+/* Liten etikett i versaler som visas ovanför rubriker, t.ex. "Om oss" */
 .label {
   display: inline-block;
   font-size: 11px;
@@ -87,7 +107,7 @@ h1, h2 { font-family: var(--rubrikfont); }
   margin-bottom: 12px;
 }
 
-/* Navigeringsfält — fast position högst upp */
+/* Navigeringsfält — fast position högst upp så den alltid syns vid scroll */
 .nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -96,10 +116,12 @@ h1, h2 { font-family: var(--rubrikfont); }
   align-items: center;
   justify-content: space-between;
   padding: 0 60px;
+  /* z-index 100 ser till att navbaren ligger ovanpå allt annat innehåll */
   z-index: 100;
 }
 
-/* Nav får bakgrund och skugga när man scrollar */
+/* Klassen .scrolled läggs till via JavaScript när användaren scrollar ned.
+   backdrop-filter suddar ut innehållet bakom navbaren för ett frostat glaseffekt */
 .nav.scrolled {
   background: rgba(247, 242, 236, 0.96);
   backdrop-filter: blur(12px);
@@ -114,7 +136,7 @@ h1, h2 { font-family: var(--rubrikfont); }
   letter-spacing: 0.3em;
 }
 
-/* Navlänkar — horisontell lista */
+/* Navlänkar — horisontell lista utan punkter */
 .nav__links {
   display: flex;
   list-style: none;
@@ -125,11 +147,13 @@ h1, h2 { font-family: var(--rubrikfont); }
   letter-spacing: 0.12em;
   text-transform: uppercase;
   color: var(--text-muted);
+  /* position: relative behövs för att ::after-pseudoelementet ska positioneras korrekt */
   position: relative;
   transition: color 0.3s;
 }
 
-/* Understrecksanimation på hover och aktiv länk */
+/* ::after skapar en osynlig linje under länken.
+   Linjen animeras från bredd 0 till 100% vid hover */
 .nav__links a::after {
   content: '';
   position: absolute;
@@ -138,12 +162,13 @@ h1, h2 { font-family: var(--rubrikfont); }
   background: currentColor;
   transition: width 0.3s var(--ease);
 }
+/* Linjen visas fullt ut på aktiv sida och vid hover */
 .nav__links a:hover::after,
 .nav__links a.active::after { width: 100%; }
 .nav__links a:hover,
 .nav__links a.active { color: var(--text); }
 
-/* Hamburgarknapp — dold på desktop */
+/* Hamburgarknapp — dold på desktop, visas på mobil via media query */
 .nav__burger {
   display: none;
   flex-direction: column;
@@ -153,6 +178,7 @@ h1, h2 { font-family: var(--rubrikfont); }
   cursor: pointer;
   padding: 4px;
 }
+/* Tre horisontella streck som bygger upp hamburgarikonen */
 .nav__burger span {
   display: block;
   width: 24px; height: 1.5px;
@@ -160,12 +186,14 @@ h1, h2 { font-family: var(--rubrikfont); }
   transition: all 0.3s var(--ease);
 }
 
-/* Hamburgarknapp animeras till kryss när menyn är öppen */
+/* När .open läggs till via JavaScript roteras strecken till ett kryss (×).
+   Första strecket roteras +45 grader, mellersta döljs, sista roteras -45 grader */
 .nav__burger.open span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
 .nav__burger.open span:nth-child(2) { opacity: 0; }
 .nav__burger.open span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
 
-/* Sidhuvud — används på boka, tjänster och kontakt */
+/* Sidhuvud — används på boka, tjänster och kontakt.
+   Extra padding-top kompenserar för den fasta navbaren så innehållet inte hamnar bakom den */
 .page-header {
   padding-top: calc(var(--nav-h) + 80px);
   padding-bottom: 80px;
@@ -175,6 +203,9 @@ h1, h2 { font-family: var(--rubrikfont); }
   border-bottom: 1px solid var(--border);
 }
 .page-header__inner { max-width: var(--max-w); margin: 0 auto; }
+
+/* clamp(min, föredragen, max) — texten skalas flytande med skärmstorleken
+   men aldrig under 42px eller över 72px */
 .page-header__title {
   font-size: clamp(42px, 6vw, 72px);
   font-weight: 300;
@@ -187,7 +218,8 @@ h1, h2 { font-family: var(--rubrikfont); }
   max-width: 480px;
 }
 
-/* Formulärgrupp — gemensam stil för boka och kontakt */
+/* Formulärgrupp — wrapper runt label, input och felmeddelande.
+   Gemensam stil som används på både boka- och kontaktsidan */
 .form-group {
   display: flex;
   flex-direction: column;
@@ -202,7 +234,8 @@ h1, h2 { font-family: var(--rubrikfont); }
   color: var(--text-muted);
 }
 
-/* Inputfält, textarea och select delar samma grundstil */
+/* Alla inputfält, textarea och select delar samma grundstil för ett enhetligt utseende.
+   appearance: none tar bort webbläsarens standardstyling på t.ex. select-pilar */
 .form-group input,
 .form-group textarea,
 .form-group select {
@@ -212,6 +245,7 @@ h1, h2 { font-family: var(--rubrikfont); }
   background: var(--white);
   border: 1.5px solid var(--border);
   padding: 12px 16px;
+  /* outline: none tar bort webbläsarens standardfokusram — vi ersätter den med box-shadow nedan */
   outline: none;
   width: 100%;
   transition: border-color 0.25s;
@@ -219,7 +253,7 @@ h1, h2 { font-family: var(--rubrikfont); }
   -webkit-appearance: none;
 }
 
-/* Grön ram och skugga när ett fält är i fokus */
+/* Grön ram och subtil skugga när ett fält är aktivt — ger tydlig visuell återkoppling */
 .form-group input:focus,
 .form-group textarea:focus,
 .form-group select:focus {
@@ -227,10 +261,11 @@ h1, h2 { font-family: var(--rubrikfont); }
   box-shadow: 0 0 0 3px rgba(122, 155, 112, 0.15);
 }
 
-/* Textarea kan inte storleksändras manuellt */
+/* Textarea kan inte storleksändras manuellt — bevarar layouten */
 .form-group textarea { resize: none; }
 
-/* Felmeddelande under ett ogiltigt fält */
+/* Felmeddelande som visas under ett ogiltigt fält via JavaScript.
+   min-height: 18px reserverar plats så layouten inte hoppar när texten visas */
 .form-error {
   font-size: 12px;
   color: #c0392b;
@@ -239,14 +274,15 @@ h1, h2 { font-family: var(--rubrikfont); }
   font-family: var(--typsnitt);
 }
 
-/* Röd ram på fält som inte klarar validering */
+/* Röd kantlinje på fält som inte klarar validering */
 .form-group input.input-error,
 .form-group textarea.input-error,
 .form-group select.input-error {
   border-color: #c0392b;
 }
 
-/* Grön bekräftelsetext när formuläret skickas */
+/* Grön bekräftelsetext som visas när formuläret skickas utan fel.
+   min-height: 20px reserverar plats så layouten inte hoppar */
 .form-success {
   font-size: 14px;
   color: var(--green-dark);
@@ -255,12 +291,13 @@ h1, h2 { font-family: var(--rubrikfont); }
   min-height: 20px;
 }
 
-/* Footer */
+/* Footer — tre kolumner: varumärke, länkar och kontaktinfo */
 .footer {
   background: var(--white);
   border-top: 1px solid var(--border);
   padding: 60px 60px 24px;
 }
+/* grid-template-columns: 2fr 1fr 1fr ger varumärkeskolumnen dubbelt så mycket plats */
 .footer__inner {
   max-width: var(--max-w);
   margin: 0 auto;
@@ -277,14 +314,16 @@ h1, h2 { font-family: var(--rubrikfont); }
 .footer__links a:hover   { color: var(--text); }
 .footer__contact p       { font-size: 14px; color: var(--text-muted); margin-bottom: 6px; }
 
-/* Responsivitet — mobilanpassning under 900px */
+/* Responsivitet — mobilanpassning under 900px bredd */
 @media (max-width: 900px) {
   .nav { padding: 0 32px; }
 
-  /* Navlänkar döljs och visas som dropdown när menyn öppnas */
+  /* Navlänkar döljs som standard och visas som en vertikal dropdown
+     när JavaScript lägger till klassen .open */
   .nav__links {
     display: none;
     flex-direction: column;
+    /* position: fixed gör att menyn täcker sidan ovanpå allt innehåll */
     position: fixed;
     top: var(--nav-h); left: 0; right: 0;
     background: var(--bg);
@@ -301,5 +340,6 @@ h1, h2 { font-family: var(--rubrikfont); }
 
   .page-header  { padding-left: 32px; padding-right: 32px; }
   .footer       { padding-left: 32px; padding-right: 32px; }
+  /* Footer-kolumner staplas vertikalt på mobil */
   .footer__inner { grid-template-columns: 1fr; gap: 32px; }
 }

@@ -1,62 +1,70 @@
 /* Boka — layout och styling för bokningssidan */
 
-/* Tvåkolumnslayout: formulär till vänster, sidopanel till höger */
+/* Bokningssidan har formuläret och sidopanelen bredvid varandra.
+   340px är en fast bredd för sidopanelen, resten av utrymmet går till formuläret */
 .booking { padding: 80px 60px 100px; }
 .booking__inner {
   max-width: var(--max-w); margin: 0 auto;
   display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: start;
 }
 
-/* Formuläret staplar sina fält vertikalt */
+/* Formuläret staplar sina fält vertikalt med gap emellan */
 .bokningsformular { display: flex; flex-direction: column; gap: 24px; }
 
-/* Två fält bredvid varandra på samma rad */
+/* Två fält bredvid varandra på samma rad, t.ex. förnamn och efternamn */
 .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
 
-/* Select-wrapper med anpassad nedåtpil */
+/* Select-wrapper — position: relative behövs för att positionera den anpassade pilen */
 .select-wrap { position: relative; }
+/* Anpassad nedåtpil för select-fältet — ersätter webbläsarens standardpil
+   som togs bort med appearance: none i alla.css */
 .select-wrap::after {
   content: '↓'; position: absolute; right: 16px; top: 50%;
+  /* translateY(-50%) centrerar pilen vertikalt i fältet */
   transform: translateY(-50%); color: var(--text-muted); pointer-events: none; font-size: 13px;
 }
 
-/* Skicka-knapp — smalare variant av .btn */
+/* Skicka-knappen är smalare och större än standardknappen */
 .btn--submit { width: fit-content; padding: 16px 48px; font-size: 13px; }
 
-/* Sidopanel — stannar kvar vid scroll */
+/* Sidopanelen — position: sticky gör att den följer med vid scroll
+   men stannar under navbaren */
 .booking__aside {
   display: flex; flex-direction: column; gap: 16px;
   position: sticky; top: calc(var(--nav-h) + 32px);
 }
 
-/* Kort i sidopanelen */
+/* Kort i sidopanelen — används för öppettider, info och citat */
 .aside-card { background: var(--white); border: 1px solid var(--border); padding: 28px 24px; }
+/* Rubrik i kortet med en linje under som avgränsare */
 .aside-card h3 {
   font-size: 20px; font-weight: 400; margin-bottom: 16px;
   padding-bottom: 12px; border-bottom: 1px solid var(--border);
 }
 
-/* Öppettidslista */
+/* Öppettidslista — dag till vänster och tid till höger med justify-content: space-between */
 .hours-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .hours-list li { display: flex; justify-content: space-between; font-size: 14px; }
+/* Söndag visas nedtonat och kursivt för att visa att salongen är stängd */
 .hours-list li .closed { color: var(--text-muted); font-style: italic; }
 
-/* Informationslista */
+/* Informationslista med bra-att-veta punkter */
 .info-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
 .info-list li { font-size: 13px; color: var(--text-muted); }
 
-/* Grönt kort med citat */
+/* Grönt kort med citat längst ned i sidopanelen */
 .aside-card--green { background: var(--green-dark); border-color: var(--green-dark); }
 .aside-quote { font-size: 18px; font-style: italic; font-weight: 300; color: var(--white); line-height: 1.5; text-align: center; }
 
 /* Responsivitet */
 @media (max-width: 900px) {
-  /* Sidopanel hamnar under formuläret på mobil */
+  /* Sidopanelen hamnar under formuläret och position: static gör att den
+     inte längre följer med vid scroll */
   .booking__inner { grid-template-columns: 1fr; }
   .booking__aside { position: static; }
   .booking        { padding-left: 32px; padding-right: 32px; }
 }
 @media (max-width: 560px) {
-  /* Formulärrader staplas vertikalt på små skärmar */
+  /* Formulärrader med två fält staplas till en kolumn på smala skärmar */
   .form-row { grid-template-columns: 1fr; }
 }

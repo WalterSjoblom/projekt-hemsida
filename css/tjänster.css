@@ -1,25 +1,29 @@
 /* Tjänster — layout och styling för prislistan */
 
-/* Huvudinnehåll med vertikal stack av kategorier */
+/* Huvudinnehåll med vertikal stack av tjänstekategorier */
 .services-main { padding: 80px 60px 100px; }
+/* flex-direction: column staplar kategorierna ovanpå varandra med gap emellan */
 .services-main__inner { max-width: var(--max-w); margin: 0 auto; display: flex; flex-direction: column; gap: 64px; }
 
-/* Kategorirubrik med dekorativ linje till vänster */
+/* Kategorirubrik — en kort grön linje till vänster om rubriktexten */
 .category__header { display: flex; align-items: center; gap: 20px; margin-bottom: 24px; }
+/* Den dekorativa linjen — en tunn horisontell grön linje */
 .category__line   { width: 40px; height: 1px; background: var(--green); flex-shrink: 0; }
 .category__header h2 { font-size: 32px; font-weight: 400; letter-spacing: 0.02em; }
 
-/* Lista av tjänster under varje kategori */
+/* Listan av tjänster under varje kategori — avgränsas av en linje i toppen */
 .category__items  { border-top: 1px solid var(--border); }
 
-/* Enskild tjänstrad med namn/beskrivning till vänster och pris till höger */
+/* Enskild tjänstrad — tjänstnamn/beskrivning till vänster, pris till höger */
 .service-row {
   display: flex; justify-content: space-between; align-items: flex-start;
   padding: 22px 0; border-bottom: 1px solid var(--border);
   transition: background 0.2s; gap: 24px;
 }
 
-/* Subtil grön bakgrund och indrag vid hover */
+/* Subtil grön bakgrund och indrag vid hover för att markera den aktiva raden.
+   Negativa marginaler med positiv padding kompenserar för indragseffekten
+   utan att rubba layouten */
 .service-row:hover {
   background: rgba(122, 155, 112, 0.04);
   padding-left: 12px; padding-right: 12px;
@@ -29,10 +33,11 @@
 .service-row__info h3  { font-size: 20px; font-weight: 400; margin-bottom: 4px; }
 .service-row__info p   { font-size: 13px; color: var(--text-muted); }
 
-/* Pris — högerställt och bryter inte rad */
+/* Priset — white-space: nowrap förhindrar att priset bryts på flera rader.
+   flex-shrink: 0 förhindrar att priskolumnen krymper om utrymmet är litet */
 .service-row__price    { font-size: 15px; font-weight: 500; color: var(--green-dark); white-space: nowrap; flex-shrink: 0; padding-top: 4px; }
 
-/* CTA-band längst ned — uppmaning att boka */
+/* CTA-band längst ned — uppmanar besökaren att boka tid */
 .cta-band { background: var(--bg-alt); padding: 90px 60px; text-align: center; border-top: 1px solid var(--border); }
 .cta-band__inner { max-width: 540px; margin: 0 auto; }
 .cta-band__inner h2 { font-size: clamp(28px, 4vw, 46px); font-weight: 400; margin-bottom: 12px; }

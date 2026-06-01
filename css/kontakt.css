@@ -1,53 +1,58 @@
 /* Kontakt — layout och styling för kontaktsidan */
 
-/* Trekolumlayout: info, öppettider och eventuellt en tredje kolumn */
+/* Tre kolumner: kontaktinfo, öppettider och en tredje kolumn.
+   align-items: start gör att kolumnerna inte sträcks om de är olika höga */
 .contact { padding: 80px 60px 100px; }
 .contact__inner {
   max-width: var(--max-w); margin: 0 auto;
   display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 60px; align-items: start;
 }
 
-/* Infoblockar — ikon och text bredvid varandra */
+/* Infoblockar — ikon och text bredvid varandra.
+   align-items: flex-start gör att ikonen sitter i toppen om texten är lång */
 .contact__info { display: flex; flex-direction: column; gap: 36px; }
 .info-block    { display: flex; gap: 20px; align-items: flex-start; }
+/* flex-shrink: 0 förhindrar att ikonen krymper om texten behöver mer plats */
 .info-block__icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
 .info-block h3 { font-size: 19px; font-weight: 400; margin-bottom: 4px; }
 .info-block p  { font-size: 14px; color: var(--text-muted); }
 
-/* Öppettider — rubrik med understrek */
+/* Öppettider — rubrik med en linje under som avgränsare */
 .contact__hours { padding-top: 4px; }
 .contact__hours h3 {
   font-size: 19px; font-weight: 400; margin-bottom: 16px;
   padding-bottom: 12px; border-bottom: 1px solid var(--border);
 }
 
-/* Tabell för öppettider */
+/* Tabell för öppettider — border-collapse: collapse tar bort dubbla kanter
+   mellan celler */
 .hours-table { border-collapse: collapse; width: 100%; }
 
-/* Tabellhuvud — grön bakgrund */
+/* Tabellhuvud med grön bakgrund och vit text */
 .hours-table th {
   background: var(--green-dark); color: var(--white);
   padding: 8px 16px; text-align: left; font-weight: 500; letter-spacing: 0.05em;
 }
 .hours-table td { padding: 8px 16px; font-size: 14px; }
 
-/* Varannan rad har ljusare bakgrund */
+/* Varannan rad i tbody får ljusare bakgrund för lättare läsning (zebra-mönster) */
 .hours-table tbody tr:nth-child(even) { background: var(--bg-alt); }
 .hours-table tbody tr:nth-child(odd)  { background: var(--white); }
 
-/* Sista raden i tfoot — stängt — har egen stil */
+/* Sista raden i tfoot — Söndag stängt — skiljer sig tydligt från övriga rader */
 .closed-row td { color: var(--text-muted); font-style: italic; background: var(--bg); }
 
-/* Kontaktformulärsektion med ljus bakgrund */
+/* Kontaktformulärsektion med ljusare bakgrund för att skilja den från övriga sektioner */
 .formularsection {
   padding: 80px 60px;
   background: var(--bg-alt);
   border-top: 1px solid var(--border);
 }
+/* Formuläret begränsas till 600px bredd och centreras */
 .formular-inner    { max-width: 600px; margin: 0 auto; }
 .formular-inner h2 { margin-bottom: 32px; }
 
-/* Kartsektion */
+/* Kartsektion — inbäddad OpenStreetMap-karta */
 .kartsection {
   padding: 80px 60px;
   background: var(--white);
@@ -60,7 +65,7 @@
   font-weight: 400;
 }
 
-/* Inbäddad karta via iframe */
+/* iframe med kartan — tar upp full bredd men begränsas av max-width */
 .karta {
   display: block;
   width: 100%;
@@ -72,12 +77,11 @@
 
 /* Responsivitet */
 @media (max-width: 900px) {
-  /* Alla kolumner staplas vertikalt */
+  /* Alla tre kolumner staplas vertikalt på mobil */
   .contact__inner  { grid-template-columns: 1fr; }
   .contact         { padding-left: 32px; padding-right: 32px; }
   .formularsection { padding-left: 32px; padding-right: 32px; }
   .kartsection     { padding-left: 32px; padding-right: 32px; }
-
-  /* Kartan krymper på mobil */
+  /* Kartan krymper på mobil för att inte ta för mycket plats */
   .karta           { height: 280px; }
 }
